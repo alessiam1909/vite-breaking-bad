@@ -3,27 +3,30 @@
 import axios from 'axios';
 import AppHeader from './components/AppHeader.vue';
 import AppContent from './components/AppContent.vue';
-import AppCard from './components/AppCard.vue';
+import AppLoader from './components/AppLoader.vue';
 import { store } from './store.js';
 
 export default{
   components: {
     AppHeader,
     AppContent,
-    AppCard
+    AppLoader
   },
   data(){
     return{
       store
     }
   },
-  beforeMount(){
+  created(){
     this.getElementApi();
   },
   methods: {
     getElementApi(){
       axios.get(store.url).then((response =>{
-        store.cardList = response.data.data
+        store.cardList = response.data.data;
+        setTimeout(() => {
+          store.loaded = true
+        }, 2000);
       }))
     }
   }
@@ -31,9 +34,13 @@ export default{
 </script>
 
 <template>
-  <AppHeader/>
- <AppContent/>
- <AppCard/>
+  <div v-if="store.loaded">
+    <AppHeader/>
+    <AppContent/>
+  </div>
+  <div v-else>
+    <AppLoader/>
+  </div>
 </template>
 
 <style lang="scss">
