@@ -26,8 +26,8 @@ export default {
 <style lang="scss">
 
 .select-container{
-    width: 90%;
-    margin: 20px auto;
+   
+    margin: 40px 0;
 
     select{
         width: 300px;

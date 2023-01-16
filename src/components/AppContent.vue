@@ -28,6 +28,8 @@ export default {
 <template lang="">
     <div class="container">
         <AppSelect :option="store.archetypeList" @selection="select_archetype"/>
+
+        <div class="carteTrovate"> Ci sono  {{store.cardList.length}} carte disponibili</div>
         <div class="row">
                 <AppCard class="col" v-for="(item, index) in store.cardList" :key="index" :card="item"/>
         </div>
@@ -39,16 +41,25 @@ export default {
     @use '../assets/styles/partials/variables' as *;
     @use '../assets/styles/partials/mixins' as *;
 
-    .row{
-        display: flex;
+    .container{
         width: 90%;
-        margin: 50px auto;
-        padding: 30px ;
-        flex-wrap: wrap;
-        background-color: white;
+        margin: 0 auto;
 
-        .col{
-            width: calc(100% / 5  - 20px);
+        .carteTrovate{
+            margin: 20px 0;
+            color: rgba(0,0,0, 0.65);
+        }
+        .row{
+            display: flex;
+            
+            margin: 50px 0;
+            padding: 30px ;
+            flex-wrap: wrap;
+            background-color: white;
+    
+            .col{
+                width: calc(100% / 5  - 20px);
+            }
         }
     }
 </style>
