@@ -1,12 +1,14 @@
 
 <script>
 import axios from 'axios';
+import AppHeader from './components/AppHeader.vue';
 import AppContent from './components/AppContent.vue';
 import AppCard from './components/AppCard.vue';
 import { store } from './store.js';
 
 export default{
   components: {
+    AppHeader,
     AppContent,
     AppCard
   },
@@ -21,7 +23,7 @@ export default{
   methods: {
     getElementApi(){
       axios.get(store.url).then((response =>{
-        store.cardList = response.data.results
+        store.cardList = response.data.data
       }))
     }
   }
@@ -29,6 +31,7 @@ export default{
 </script>
 
 <template>
+  <AppHeader/>
  <AppContent/>
  <AppCard/>
 </template>
