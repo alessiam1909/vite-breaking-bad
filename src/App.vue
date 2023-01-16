@@ -26,7 +26,7 @@ export default{
         store.cardList = response.data.data;
         setTimeout(() => {
           store.loaded = true
-        }, 2000);
+        }, 3000);
       }))
       axios.get(store.urlArchetype).then((response) =>{
         store.archetypeList = response.data
