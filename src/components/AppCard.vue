@@ -13,7 +13,7 @@ export default {
     <div class="card">
         <img :src="card.card_images[0].image_url" :alt="card.name">
         <h4>{{card.name}}</h4>
-        <div>{{card.archetype}}</div>
+        <div class="type">{{card.archetype}}</div>
     </div>
 </template>
 
@@ -23,7 +23,6 @@ export default {
 
     .card{
         background-color: $orange;
-        height: 100%;
         margin: 20px 10px;
         padding-bottom: 20px;
         text-align: center;
@@ -35,6 +34,12 @@ export default {
         h4{
             text-transform: uppercase;
             color: white;
+            font-size: 15px;
+            padding: 5px;
+        }
+
+        .type{
+            font-size: 15px;
         }
     }
 </style>
