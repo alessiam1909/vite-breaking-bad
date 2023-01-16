@@ -28,6 +28,9 @@ export default{
           store.loaded = true
         }, 2000);
       }))
+      axios.get(store.urlArchetype).then((response) =>{
+        store.archetypeList = response.data
+      })
     }
   }
 }
